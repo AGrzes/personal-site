@@ -12,7 +12,8 @@ Metalsmith(__dirname)
   }))
   .use(markdown())
   .use(layouts({
-    engine: 'handlebars'
+    engine: 'handlebars',
+    default: 'default.html'
   }))
   .use(permalinks({
     pattern: ':title',
