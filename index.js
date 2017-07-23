@@ -15,7 +15,7 @@ Metalsmith(__dirname)
   .use(fileMetadata([{
     pattern: "blog/**/*.md",
     metadata: {
-      "layout": "blog-post.html"
+      layout: "blog-post.html"
     }
   }]))
   .use(collections({
