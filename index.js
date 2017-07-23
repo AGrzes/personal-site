@@ -26,9 +26,8 @@ Metalsmith(__dirname)
     }
   }))
   .use(summary({
-    perPage: 10,
     collection: "blog",
-    layout: 'blog-page.html'
+    layout: 'blog-cards.html'
   }))
   .use(markdown())
   .use(layouts({
