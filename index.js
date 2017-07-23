@@ -27,16 +27,10 @@ Metalsmith(__dirname)
   }))
   .use(summary({
     collection: "blog",
-    layout: 'blog-cards.html'
+    layout: 'blog-cards.html',
+    basedir: '../'
   }))
   .use(markdown())
-  .use(layouts({
-    engine: 'handlebars',
-    default: 'default.html',
-    exposeConsolidate: function (requires) {
-      requires.handlebars = Handlebars
-    }
-  }))
   .use(permalinks({
     pattern: ':title',
     linksets: [{
@@ -45,6 +39,13 @@ Metalsmith(__dirname)
       },
       pattern: 'blog/:date/:title',
     }]
+  }))  
+  .use(layouts({
+    engine: 'handlebars',
+    default: 'default.html',
+    exposeConsolidate: function (requires) {
+      requires.handlebars = Handlebars
+    }
   }))
   .build(function (err) {
     if (err) throw err;
