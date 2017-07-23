@@ -4,6 +4,7 @@ var collections = require('metalsmith-collections');
 var markdown = require('metalsmith-markdown');
 var permalinks = require('metalsmith-permalinks');
 var fileMetadata = require('metalsmith-filemetadata');
+var summary = require('./collection-summary')
 var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
@@ -18,7 +19,16 @@ Metalsmith(__dirname)
     }
   }]))
   .use(collections({
-    blog: 'blog/**/*.md'
+    blog: {
+      pattern: 'blog/**/*.md',
+      sortBy: 'date',
+      reverse: true
+    }
+  }))
+  .use(summary({
+    perPage: 10,
+    collection: "blog",
+    layout: 'blog-page.html'
   }))
   .use(markdown())
   .use(layouts({
