@@ -28,7 +28,14 @@
         {{{contents}}}
       </article>
     </div>
-
+    <div class="row">
+      {{#if previous}}
+      <a class="left waves-effect waves-light btn" href="{{basedir}}{{previous.path}}"><i class="material-icons left">chevron_left</i>{{previous.title}}</a>      
+      {{/if}} 
+      {{#if next}}
+      <a class="right waves-effect waves-light btn" href="{{basedir}}{{next.path}}"><i class="material-icons right">chevron_right</i>{{next.title}}</a>      
+      {{/if}}
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
