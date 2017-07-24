@@ -28,7 +28,16 @@
         {{{contents}}}
       </article>
     </div>
-
+    <div class="row">
+      <ul class="pagination col s12">
+        {{#if previous}}
+        <li class="waves-effect"><a href="{{previous.path}}"><i class="material-icons">chevron_left</i>{{previous.title}}</a></li>
+        {{/if}}
+        {{#if next}}
+        <li class="waves-effect"><a href="{{next.path}}"><i class="material-icons">chevron_right</i>{{next.path}}</a></li>
+        {{/if}}
+      </ul>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
