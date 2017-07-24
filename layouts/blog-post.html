@@ -31,10 +31,10 @@
     <div class="row">
       <ul class="pagination col s12">
         {{#if previous}}
-        <li class="waves-effect"><a href="{{previous.path}}"><i class="material-icons">chevron_left</i>{{previous.title}}</a></li>
+        <li class="waves-effect"><a href="{{basedir}}{{previous.path}}"><i class="material-icons">chevron_left</i> {{previous.title}}</a></li>
         {{/if}}
         {{#if next}}
-        <li class="waves-effect"><a href="{{next.path}}"><i class="material-icons">chevron_right</i>{{next.path}}</a></li>
+        <li class="waves-effect"><a href="{{basedir}}{{next.path}}">{{next.title}} <i class="material-icons">chevron_right</i></a></li>
         {{/if}}
       </ul>
     </div>

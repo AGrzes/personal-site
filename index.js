@@ -14,6 +14,7 @@ MomentHandler.registerHelpers(Handlebars);
 Metalsmith(__dirname)
   .source('src')
   .destination('target')
+  .metadata({basedir:`${__dirname}/target/`})
   .use(fileMetadata([{
     pattern: "blog/**/*.md",
     metadata: {
@@ -29,13 +30,11 @@ Metalsmith(__dirname)
   }))
   .use(summary({
     collection: "blog",
-    layout: 'blog-cards.html',
-    basedir: '../'
+    layout: 'blog-cards.html'
   }))
   .use(archive({
     collection: "blog",
-    layout: 'blog-archive.html',
-    basedir: '../'
+    layout: 'blog-archive.html'
   }))  
   .use(markdown())
   .use(excerpts())
