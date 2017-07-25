@@ -7,10 +7,10 @@
   <nav class="top-nav yellow accent-4">
     <div class="nav-wrapper container">
       <div class="col s12">
-        <a href="#!" class="breadcrumb">{{moment date "YYYY"}}</a>
-        <a href="#!" class="breadcrumb">{{moment date "MM"}}</a>
-        <a href="#!" class="breadcrumb">{{moment date "DD"}}</a>
-        <a href="#!" class="breadcrumb">{{title}}</a>
+        <a href="{{basedir}}blog/{{moment date "YYYY"}}" class="breadcrumb">{{moment date "YYYY"}}</a>
+        <a href="{{basedir}}blog/{{moment date "YYYY"}}/{{moment date "MM"}}" class="breadcrumb">{{moment date "MM"}}</a>
+        <a href="{{basedir}}blog/{{moment date "YYYY"}}/{{moment date "MM"}}/{{moment date "DD"}}" class="breadcrumb">{{moment date "DD"}}</a>
+        <a href="{{basedir}}{{path}}" class="breadcrumb">{{title}}</a>
       </div>
     </div>
   </nav>
