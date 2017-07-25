@@ -7,7 +7,9 @@
   <nav class="top-nav yellow accent-4">
     <div class="nav-wrapper container">
       <div class="col s12">
-        {{title}}
+        <a href="{{basedir}}blog/{{year}}" class="breadcrumb">{{year}}</a>
+        <a href="{{basedir}}blog/{{year}}/{{month}}" class="breadcrumb">{{month}}</a>
+        <a href="{{basedir}}blog/{{year}}/{{month}}/{{day}}" class="breadcrumb">{{day}}</a>
       </div>
     </div>
   </nav>
