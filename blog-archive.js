@@ -7,19 +7,25 @@ module.exports = (opts) => {
     var archive = _.mapValues(_.groupBy(collection, (page) => moment(page.date).format('YYYY')), (items) => _.mapValues(_.groupBy(items, (page) => moment(page.date).format('MM')), (items) => _.groupBy(items, (page) => moment(page.date).format('DD'))))
     archive = _.map(archive, (items, year) => ({
       title: year,
+      year: year,
       layout: 'archive-year.html',
       contents: '',
-      permalink:false,
+      permalink: false,
       months: _(items).map((items, month) => ({
         title: month,
+        year: year,
+        month: month,
         layout: 'archive-month.html',
         contents: '',
-        permalink:false,
+        permalink: false,
         days: _(items).map((items, day) => ({
           title: day,
+          year: year,
+          month: month,
+          day: day,
           layout: 'archive-day.html',
           pages: items,
-          permalink:false,
+          permalink: false,
           contents: ''
         })).sortBy('title').value()
       })).sortBy('title').value()
