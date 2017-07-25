@@ -50,6 +50,7 @@ Metalsmith(__dirname)
   .use(layouts({
     engine: 'handlebars',
     default: 'default.html',
+    partials: 'partials',
     exposeConsolidate: function (requires) {
       requires.handlebars = Handlebars
     }
