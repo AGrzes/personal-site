@@ -16,8 +16,13 @@
   </nav>
   <div class="container">
     <div class="row">
-      <article class="col s12 m9 l10">
-        {{{contents}}}
+      <article class="col s12">
+        <div>
+          {{#if image}}
+          <img src="{{image}}" class="responsive-img" />
+          {{/if}}
+          {{{contents}}}
+        </div>
       </article>
     </div>
     <div class="row">
