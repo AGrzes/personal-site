@@ -4,7 +4,6 @@ var collections = require('metalsmith-collections');
 var markdown = require('metalsmith-markdown');
 var permalinks = require('metalsmith-permalinks');
 var fileMetadata = require('metalsmith-filemetadata');
-var summary = require('./collection-summary')
 var archive = require('./blog-archive')
 var excerpts = require('metalsmith-excerpts');
 var Handlebars = require("handlebars");
@@ -28,13 +27,8 @@ Metalsmith(__dirname)
       reverse: true
     }
   }))
-  .use(summary({
-    collection: "blog",
-    layout: 'blog-cards.html'
-  }))
   .use(archive({
-    collection: "blog",
-    layout: 'blog-archive.html'
+    collection: "blog"
   }))  
   .use(markdown())
   .use(excerpts())

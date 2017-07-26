@@ -5,7 +5,7 @@ module.exports = (opts) => {
     var metadata = metalsmith.metadata()
     var collection = metadata.collections[opts.collection]
     var archive = _.mapValues(_.groupBy(collection, (page) => moment(page.date).format('YYYY')), (items) => _.mapValues(_.groupBy(items, (page) => moment(page.date).format('MM')), (items) => _.groupBy(items, (page) => moment(page.date).format('DD'))))
-    archive = _.map(archive, (items, year) => ({
+    archive = _(archive).map((items, year) => ({
       title: year,
       year: year,
       layout: 'archive-year.html',
@@ -29,7 +29,7 @@ module.exports = (opts) => {
           contents: ''
         })).sortBy('title').value()
       })).sortBy('title').value()
-    }))
+    })).sortBy('title').value()
     _.forEach(archive, (year) => {
       files[`${opts.collection}/${year.title}/index.html`] = year
       _.forEach(year.months, (month) => {
@@ -39,6 +39,13 @@ module.exports = (opts) => {
         })
       })
     })
+    files[`${opts.collection}/index.html`] = {
+      title: _.startCase(opts.collection),
+      layout: 'archive.html',
+      contents: '',
+      permalink: false,
+      years: archive
+    }
     done()
   }
 }
