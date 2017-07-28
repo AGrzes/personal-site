@@ -13,11 +13,13 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col s12 m9 l10">
+      <div class="col s12">
+        <div class="collection">
         {{#each years}}
-        <h1><a href="{{@root.basedir}}blog/{{year}}">{{year}}</a></h1>
+        <a class="collection-item"  href="{{@root.basedir}}blog/{{year}}"><h2>{{year}}</h2></a>
           {{>archive-year}}
         {{/each}} 
+        </div>
       </div>
 
     </div>

@@ -1,4 +1,4 @@
 {{#each months}}
-<h1><a href="{{@root.basedir}}blog/{{year}}/{{month}}">{{month}}</a></h1>
+<a class="collection-item" href="{{@root.basedir}}blog/{{year}}/{{month}}"><h2>{{month}}</h2></a>
   {{>archive-month}} 
 {{/each}}
