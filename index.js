@@ -5,6 +5,7 @@ var markdown = require('metalsmith-markdown');
 var permalinks = require('metalsmith-permalinks');
 var fileMetadata = require('metalsmith-filemetadata');
 var archive = require('./blog-archive')
+var publish = require('./publish-date')
 var excerpts = require('metalsmith-excerpts');
 var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
@@ -13,6 +14,7 @@ MomentHandler.registerHelpers(Handlebars);
 Metalsmith(__dirname)
   .source('src')
   .destination('target')
+  .use(publish('2017-05-01'))
   .metadata({basedir:`${__dirname}/target/`})
   .use(fileMetadata([{
     pattern: "blog/**/*.md",
