@@ -11,11 +11,16 @@ var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
+var src = process.env.SITE_SRC||'src'
+var target = process.env.SITE_TARGET||`${__dirname}/target/`
+var publishDate = process.env.SITE_PUBLISH_DATE
+var basedir =  process.env.BASEDIR||target
+
 Metalsmith(__dirname)
-  .source('src')
-  .destination('target')
-  .use(publish('2017-05-01'))
-  .metadata({basedir:`${__dirname}/target/`})
+  .source(src)
+  .destination(target)
+  .use(publish(publishDate))
+  .metadata({basedir:basedir})
   .use(fileMetadata([{
     pattern: "blog/**/*.md",
     metadata: {
