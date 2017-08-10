@@ -4,8 +4,8 @@
   "description": "A personal site generator.",
   "main": "index.js",
   "scripts": {
-    "test": "SITE_PUBLISH_DATE=2017-05-01 node index.js",
-    "start": "node index.js"
+    "test": "SITE_PUBLISH_DATE=2017-05-01 node cmd.js",
+    "start": "node cmd.js"
   },
   "repository": {
     "type": "git",
