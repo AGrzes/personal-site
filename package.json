@@ -22,7 +22,7 @@
     "url": "https://github.com/AGrzes/personal-site/issues"
   },
   "homepage": "https://github.com/AGrzes/personal-site#readme",
-  "devDependencies": {
+  "dependencies": {
     "handlebars": "^4.0.10",
     "handlebars.moment": "^1.0.4",
     "lodash": "^4.17.4",
