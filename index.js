@@ -11,10 +11,7 @@ var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
 
-var src = process.env.SITE_SRC||'src'
-var target = process.env.SITE_TARGET||`${__dirname}/target/`
-var publishDate = process.env.SITE_PUBLISH_DATE
-var basedir =  process.env.BASEDIR||target
+module.exports = (src,target,publishDate,basedir)=>{
 
 Metalsmith(__dirname)
   .source(src)
@@ -59,3 +56,4 @@ Metalsmith(__dirname)
   .build(function (err) {
     if (err) throw err;
   });
+}
