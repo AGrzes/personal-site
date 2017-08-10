@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+  <nav class="top-nav yellow accent-4">
+    <div class="nav-wrapper container">
+      <div class="col s12">
+        <a href="{{basedir}}blog/{{moment date "YYYY"}}" class="breadcrumb">{{moment date "YYYY"}}</a>
+        <a href="{{basedir}}blog/{{moment date "YYYY"}}/{{moment date "MM"}}" class="breadcrumb">{{moment date "MM"}}</a>
+        <a href="{{basedir}}blog/{{moment date "YYYY"}}/{{moment date "MM"}}/{{moment date "DD"}}" class="breadcrumb">{{moment date "DD"}}</a>
+        <a href="{{basedir}}{{path}}" class="breadcrumb">{{title}}</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <article class="col s12">
+        {{#if image}}
+        <img src="{{image}}" class="responsive-img" />
+        {{/if}}
+        {{{contents}}}
+      </article>
+    </div>
+    <div class="row">
+      {{#if previous}}
+      <a class="left waves-effect waves-light btn" href="{{basedir}}{{previous.path}}"><i class="material-icons left">chevron_left</i>{{previous.title}}</a>      
+      {{/if}} 
+      {{#if next}}
+      <a class="right waves-effect waves-light btn" href="{{basedir}}{{next.path}}"><i class="material-icons right">chevron_right</i>{{next.title}}</a>      
+      {{/if}}
+    </div>
+  </div>
+  {{>tail-js}}
+</body>
+
+</html>

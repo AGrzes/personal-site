@@ -1,10 +1,10 @@
 {
   "name": "personal-site",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A personal site generator.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "SITE_PUBLISH_DATE=2017-05-01 node index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -22,10 +22,16 @@
     "url": "https://github.com/AGrzes/personal-site/issues"
   },
   "homepage": "https://github.com/AGrzes/personal-site#readme",
-  "devDependencies": {
+  "dependencies": {
     "handlebars": "^4.0.10",
+    "handlebars.moment": "^1.0.4",
+    "lodash": "^4.17.4",
     "metalsmith": "^2.3.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-excerpts": "^1.2.0",
+    "metalsmith-filemetadata": "^1.0.0",
     "metalsmith-layouts": "^1.8.1",
-    "metalsmith-markdown": "^0.2.1"
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0"
   }
 }

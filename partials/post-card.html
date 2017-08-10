@@ -1,0 +1,15 @@
+<a href="{{@root.basedir}}{{path}}">
+  <div class="card cyan darken-3">
+    {{#if image}}
+      <div class="card-image">
+        <img src="{{image}}">
+        <span class="card-title">{{title}}</span>
+      </div>
+    {{else}}
+      <div class="card-content white-text">
+        <span class="card-title">{{title}}</span>
+        <p>{{{excerpt}}}</p>
+      </div>
+    {{/if}}
+  </div>
+</a>
