@@ -4,7 +4,7 @@ module.exports = (opts) => {
   return (files, metalsmith, done) => {
     var metadata = metalsmith.metadata()
     var collection = metadata.collections[opts.collection]
-    var archive = _.mapValues(_.groupBy(collection, (page) => moment(page.date).format('YYYY')), (items) => _.mapValues(_.groupBy(items, (page) => moment(page.date).format('MM')), (items) => _.groupBy(items, (page) => moment(page.date).format('DD'))))
+    var archive = _.mapValues(_.groupBy(_.filter(collection,(page)=>page.publish!='unlisted'), (page) => moment(page.date).format('YYYY')), (items) => _.mapValues(_.groupBy(items, (page) => moment(page.date).format('MM')), (items) => _.groupBy(items, (page) => moment(page.date).format('DD'))))
     archive = _(archive).map((items, year) => ({
       title: year,
       year: year,
