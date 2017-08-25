@@ -5,8 +5,9 @@ var markdown = require('metalsmith-markdown');
 var permalinks = require('metalsmith-permalinks');
 var fileMetadata = require('metalsmith-filemetadata');
 var archive = require('./blog-archive')
-var publish = require('./publish-date')
+var publishdate = require('./publish-date')
 var excerpts = require('metalsmith-excerpts');
+var publish = require('metalsmith-publish');
 var Handlebars = require("handlebars");
 var MomentHandler = require("handlebars.moment");
 MomentHandler.registerHelpers(Handlebars);
@@ -16,7 +17,7 @@ module.exports = (src,target,publishDate,basedir)=>{
 Metalsmith(__dirname)
   .source(src)
   .destination(target)
-  .use(publish(publishDate))
+  .use(publishdate(publishDate))
   .metadata({basedir:basedir})
   .use(fileMetadata([{
     pattern: "blog/**/*.md",
@@ -24,6 +25,9 @@ Metalsmith(__dirname)
       layout: "blog-post.html"
     }
   }]))
+  .use(publish({
+    draft: false
+  }))  
   .use(collections({
     blog: {
       pattern: 'blog/**/*.md',
